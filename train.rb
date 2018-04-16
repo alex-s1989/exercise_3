@@ -4,25 +4,28 @@ class Train
   FREIGHT = :freight
   PASS = :pass
   
-  def initialize(train_number, type, number_of_wagons, speed = 0)
+  def initialize(train_number, type, number_of_wagons)
     @train_number = train_number
     @type = type
     @number_of_wagons = number_of_wagons
-    @speed = speed
+    @speed = 0
   end
   
   def inc_speed(speed)
+    return 'Speed is less than zero' if @speed + speed < 0
     @speed += speed
   end
   
   def stop
     @speed = 0
   end
-  
-  def change_number_of_wagons(add = false)
-    return unless speed.zero?
-    
-    @number_of_wagons += (add ? 1 : -1)
+
+  def attach_wagon
+    @number_of_wagons += 1 if  @speed == 0
+  end
+
+  def unhook_wagon
+    @number_of_wagons -= 1 if  (@speed) == 0 && (@number_of_wagons > 0)
   end
   
   def take_route(route)

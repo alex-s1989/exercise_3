@@ -17,10 +17,4 @@ class Route
     list_stations.each { |station| puts station }
   end
   
-  def add_start_station(train)
-    first_station = list_stations.first
-
-    first_station.arrival_train(train) if first_station
-  end
-  
 end
