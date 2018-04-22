@@ -10,11 +10,15 @@ class Route
   end
 
   def delete_interval_stations(station)
-    insert.delete(station)
+    list_stations.delete(station)
   end
 
   def print_route
     list_stations.each { |station| puts station }
+  end
+  
+  def to_s
+    "#{list_stations.first} - #{list_stations.last}"
   end
   
 end

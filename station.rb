@@ -15,12 +15,8 @@ class Station
     trains.delete(train)
   end
   
-  def trains_by_type(type)
-    trains.select { |train| train.type == type }
-  end
-  
-  def count_trains_by_type(type)
-    trains_by_type(type).size
+  def to_s
+    name
   end
 
 end
